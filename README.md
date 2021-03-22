@@ -1,6 +1,15 @@
 # Backdoor
 
-**TODO: Add description**
+A supervised reverse tcp backdoor and localhost listener.
+You can change the connection host and port as well as the listening port in the config.exs file.
+
+## building
+
+if you want to build a standalone executable you can run the following command on a machine with the target architechture:
+
+```bash
+MIX_ENV=prod mix release
+```
 
 ## Installation
 
@@ -18,4 +27,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/backdoor](https://hexdocs.pm/backdoor).
-
